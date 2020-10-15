@@ -67,6 +67,7 @@ function DrawingBoardController(DrawingBoardSrvc, TOOLBOX_CONSTS) {
             ctx.lineWidth = `${5*pointerThickness}`;
         }
         canvas.addEventListener("mousemove", draw);
+        canvas.addEventListener("touchmove", draw);
         draw(e);
     }
 
@@ -77,6 +78,7 @@ function DrawingBoardController(DrawingBoardSrvc, TOOLBOX_CONSTS) {
      */
     function stopPainting(e) {
         canvas.removeEventListener("mousemove", draw);
+        canvas.removeEventListener("touchmove", draw);
         ctx.beginPath();
     }
 
@@ -89,7 +91,9 @@ function DrawingBoardController(DrawingBoardSrvc, TOOLBOX_CONSTS) {
     // Event listeners for user actions
     window.onresize = createCanvas;
     canvas.addEventListener("mousedown", startPainting);
+    canvas.addEventListener("touchstart", startPainting);
     canvas.addEventListener("mouseup", stopPainting);
+    canvas.addEventListener("touchend", stopPainting);
 }
 
 angular
