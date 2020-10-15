@@ -47,8 +47,8 @@ function DrawingBoardController(DrawingBoardSrvc, TOOLBOX_CONSTS) {
     function startPainting(e) {
         // TODO: change cursors for pen, highlighter etc. if possible
         // canvas.style.cursor = url();
-        ctx.lineWidth = DrawingBoardSrvc.getLineWidth();
-        
+        var pointerThickness = DrawingBoardSrvc.getLineWidth();
+        ctx.lineWidth = pointerThickness;
         var tool = DrawingBoardSrvc.getCurrentTool();
         
         ctx.strokeStyle = DrawingBoardSrvc.getColor().name;
@@ -64,7 +64,7 @@ function DrawingBoardController(DrawingBoardSrvc, TOOLBOX_CONSTS) {
         } 
         else if (tool === TOOLBOX_CONSTS.TOOLS.ERASER.name) {
             ctx.globalCompositeOperation="destination-out";
-            ctx.lineWidth = '10';
+            ctx.lineWidth = `${5*pointerThickness}`;
         }
         canvas.addEventListener("mousemove", draw);
         draw(e);
