@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="drawItUp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Draw It Up!</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!------------------- Styles ----------------------->
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./components/toolbox/toolbox.css">
+
+    <!------------------- Scripts ---------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://kit.fontawesome.com/961c06fbb4.js" crossorigin="anonymous" defer></script>
+    
+    <script src="./modules/drawItUp.module.js"></script>
+    <script src="./constants/toolbox.constants.js"></script>
+    <script src="./services/drawing-board.service.js"></script>
+    <script src="./components/canvas/canvas.directive.js"></script>
+    <script src="./components/canvas/canvas.controller.js"></script>
+    <script src="./components/toolbox/toolbox.directive.js"></script>
+    <script src="./components/toolbox/toolbox.controller.js"></script>
+
+    <script type="text/ng-template" id="toolbox.tpl.html">
+        <div id="toolbox">
+            <div class="colors">
+                <div ng-repeat="(identifier, color) in toolBoxCtrl.colors"
+                    ng-click="toolBoxCtrl.changeColor(color)">
+                    <i class="fas fa-square" ng-class="color.name"></i>
+                </div>
+            </div>
+            <hr>
+            <div class="tools">
+                <div ng-repeat="(identifier, tool) in toolBoxCtrl.tools" 
+                    ng-click="toolBoxCtrl.changeToolSelection(tool.name)" class="tool-container">
+                    <i class="fas" ng-class="tool.iconClass"></i>
+                </div>
+            </div>
+            <hr>
+            <div class="marker_sizes">
+                <div ng-repeat="(identifier, marker_size) in toolBoxCtrl.markerSizes" 
+                    ng-class="marker_size.size" ng-click="toolBoxCtrl.changeLineThickness(marker_size.size)">
+                    <i class="fas fa-circle" ng-class="marker_size.iconClass"></i>
+                </div>
+            </div>
+        </div>
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <toolbox></toolbox>
+        <drawing-board></drawing-board>
+    </div>
+</body>
+
+</html>
