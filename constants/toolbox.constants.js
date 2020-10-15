@@ -3,15 +3,15 @@ angular
 .constant('TOOLBOX_CONSTS', {
     TOOLS: {
         PEN: {
-            name: 'PEN',
+            name: 'Pen',
             iconClass: 'fa-pen-fancy'
         },
         HIGHLIGHTER: {
-            name: 'HIGHLIGHTER',
+            name: 'Highlighter',
             iconClass: 'fa-highlighter'
         },
         ERASER: {
-            name: 'ERASER',
+            name: 'Eraser',
             iconClass: 'fa-eraser'
         }
     },

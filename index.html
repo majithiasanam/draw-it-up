@@ -5,16 +5,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Draw It Up!</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
 
     <!------------------- Styles ----------------------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="./components/toolbox/toolbox.css">
 
     <!------------------- Scripts ---------------------->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/961c06fbb4.js" crossorigin="anonymous" defer></script>
-    
+
     <script src="./modules/drawItUp.module.js"></script>
     <script src="./constants/toolbox.constants.js"></script>
     <script src="./services/drawing-board.service.js"></script>
@@ -26,22 +37,23 @@
     <script type="text/ng-template" id="toolbox.tpl.html">
         <div id="toolbox">
             <div class="colors">
-                <div ng-repeat="(identifier, color) in toolBoxCtrl.colors"
-                    ng-click="toolBoxCtrl.changeColor(color)">
+                <div ng-repeat="(identifier, color) in toolBoxCtrl.colors" ng-click="toolBoxCtrl.changeColor(color)"
+                    data-toggle="tooltip" data-placement="right" title={{color.name}}>
                     <i class="fas fa-square" ng-class="color.name"></i>
                 </div>
             </div>
             <hr>
             <div class="tools">
-                <div ng-repeat="(identifier, tool) in toolBoxCtrl.tools" 
-                    ng-click="toolBoxCtrl.changeToolSelection(tool.name)" class="tool-container">
+                <div ng-repeat="(identifier, tool) in toolBoxCtrl.tools" ng-click="toolBoxCtrl.changeToolSelection(tool.name)"
+                    class="tool-container" data-toggle="tooltip" data-placement="right" title={{tool.name}}>
                     <i class="fas" ng-class="tool.iconClass"></i>
                 </div>
             </div>
             <hr>
             <div class="marker_sizes">
-                <div ng-repeat="(identifier, marker_size) in toolBoxCtrl.markerSizes" 
-                    ng-class="marker_size.size" ng-click="toolBoxCtrl.changeLineThickness(marker_size.size)">
+                <div ng-repeat="(identifier, marker_size) in toolBoxCtrl.markerSizes" ng-class="marker_size.size"
+                    ng-click="toolBoxCtrl.changeLineThickness(marker_size.size)" data-toggle="tooltip" data-placement="right"
+                    title="{{marker_size.size}}pt">
                     <i class="fas fa-circle" ng-class="marker_size.iconClass"></i>
                 </div>
             </div>
@@ -50,7 +62,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="main-container">
         <toolbox></toolbox>
         <drawing-board></drawing-board>
     </div>
