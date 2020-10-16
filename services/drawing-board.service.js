@@ -4,7 +4,7 @@ function DrawingBoardService(TOOLBOX_CONSTS) {
     var thisService = this;
     
     this.currentTool = TOOLBOX_CONSTS.TOOLS.PEN.name;
-    this.lineWidth = TOOLBOX_CONSTS.MARKER_SIZES.THREE_PX;
+    this.lineWidth = TOOLBOX_CONSTS.MARKER_SIZES.THREE_PX.size;
     this.color = TOOLBOX_CONSTS.COLORS.BLACK;
 
     this.setCurrentTool = function(toolName) {
