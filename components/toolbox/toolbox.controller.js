@@ -2,6 +2,8 @@ function ToolBoxController(DrawingBoardSrvc, TOOLBOX_CONSTS) {
     // Reference to this controller
     var thisController = this;
 
+    thisController.propertiesSrvc = DrawingBoardSrvc;
+
     // Initialize all tooltips
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();

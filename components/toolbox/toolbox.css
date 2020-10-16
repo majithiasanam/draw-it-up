@@ -32,6 +32,10 @@ hr {
     color: #000000;
 }
 
+.light-blue {
+    color: #00c4ff;
+}
+
 .colors i, .tools i, .marker_sizes {
     font-size: 2em;
 }
